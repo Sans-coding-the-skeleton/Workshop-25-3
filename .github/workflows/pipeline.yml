@@ -30,5 +30,5 @@ jobs:
           echo "**$WEATHER**" >> out.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: report
+          name: weatherReport
           path: out.txt
