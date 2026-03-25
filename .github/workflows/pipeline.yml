@@ -20,11 +20,15 @@ jobs:
         run: |
           WEATHER=$(curl -s "wttr.in/${{matrix.city}}?format=3")
           echo "weather in ${{matrix.city}}: $WEATHER"
-    
+
           echo "## ${{matrix.city}} Weather" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**$WEATHER**" >> $GITHUB_STEP_SUMMARY
+
+          echo "## ${{matrix.city}} Weather" >> out.txt
+          echo "" >> out.txt
+          echo "**$WEATHER**" >> out.txt
       - uses: actions/upload-artifact@v4
-          with:
-            name: report
-            path: out.txt
+        with:
+          name: report
+          path: out.txt
