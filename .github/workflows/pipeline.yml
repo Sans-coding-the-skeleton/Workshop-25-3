@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-  - cron: "1 5 3 8 *"
+  - cron: "0 0 * * *"
 
 jobs:
   weather:
@@ -24,7 +24,7 @@ jobs:
           echo "## ${{matrix.city}} Weather" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**$WEATHER**" >> $GITHUB_STEP_SUMMARY
-        - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
           with:
             name: report
             path: out.txt
