@@ -9,7 +9,7 @@ jobs:
   weather:
     runs-on: ubuntu-latest
     steps:
-     - name: fetch weather
+      -name: fetch weather
       run: |
         CITY="London"
         WEATHER=${curl -s "wttr.in/$CITY?format=3"}
