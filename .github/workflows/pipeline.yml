@@ -12,7 +12,7 @@ jobs:
       - name: fetch weather
         run: |
           CITY="London"
-          WEATHER=${curl -s "wttr.in/$CITY?format=3"}
+          WEATHER=${curl -s "wttr.in/London?format=3"}
           echo "weather in $CITY: $WEATHER"
     
           echo "## $CITY Weather" >> $GITHUB_STEP_SUMMARY
