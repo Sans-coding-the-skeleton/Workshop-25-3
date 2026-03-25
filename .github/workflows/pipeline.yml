@@ -2,16 +2,23 @@
 name: weather report
 
 on:
+  schedule:
+    cron: "0 8 * * *"
   push:
     branches: [main]
+  
   workflow_dispatch:
+
 jobs:
   weather:
+    strategy:
+      matrix:
+        city: [London,Tokyo,NYC]
     runs-on: ubuntu-latest
     steps:
       - name: fetch weather
         run: |
-          CITY=["London","Prague"]
+          CITY=["London","Tokyo"]
           WEATHER=$(curl -s "wttr.in/$CITY?format=3")
           echo "weather in $CITY: $WEATHER"
     
