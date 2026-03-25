@@ -1,12 +1,11 @@
-name: weather report
+name: testWeather
 
 on:
-  schedule:
-    cron: "0 8 * * *"
   push:
     branches: [main]
-  
   workflow_dispatch:
+  schedule:
+  - cron: "0 8 * * *"
 
 jobs:
   weather:
