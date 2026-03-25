@@ -1,0 +1,18 @@
+# .github/workflows/weather.yml
+name: weather report
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  weather:
+    runs-on: ubuntu-latest
+    run: |
+      CITY="London"
+      WEATHER=${curl -s "wttr.in/$CITY?format=3"}
+      echo "weather in $CITY: $WEATHER"
+
+      echo "## $CITY Weather" >> $GITHUB_STEP_SUMMARY
+      echo "" >> $GITHUB_STEP_SUMMARY
+      echo "**$WEATHER**" >> $GITHUB_STEP_SUMMARY
